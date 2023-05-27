@@ -17,17 +17,45 @@ fn main() -> ! {
     rtt_init_print!();
     let p = pac::Peripherals::take().unwrap();
 
-    let gpioc = p.GPIOC.split();
-    let mut led = gpioc.pc13.into_push_pull_output();
+    // let gpioc = p.GPIOC.split();
+    // let mut led = gpioc.pc13.into_push_pull_output();
+
+    let gpiod = p.GPIOD.split();
+
+    let mut led_green = gpiod.pd12.into_push_pull_output();
+    let mut led_orange = gpiod.pd13.into_push_pull_output();
+    let mut led_red = gpiod.pd14.into_push_pull_output();
+    let mut led_blue = gpiod.pd15.into_push_pull_output();
 
     let mut counter: usize = 0;
 
     loop {
         for _ in 0..10_000 {
-            led.set_high();
+            led_green.set_high();
         }
         for _ in 0..10_000 {
-            led.set_low();
+            led_green.set_low();
+        }
+
+        for _ in 0..10_000 {
+            led_orange.set_high();
+        }
+        for _ in 0..10_000 {
+            led_orange.set_low();
+        }
+
+        for _ in 0..10_000 {
+            led_red.set_high();
+        }
+        for _ in 0..10_000 {
+            led_red.set_low();
+        }
+
+        for _ in 0..10_000 {
+            led_blue.set_high();
+        }
+        for _ in 0..10_000 {
+            led_blue.set_low();
         }
 
         counter += 1;
