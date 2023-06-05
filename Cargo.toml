@@ -14,9 +14,9 @@ cortex-m-rt = "0.7"
 panic-halt = "0.2"
 rtt-target = "0.4.0"
 defmt = "0.3.4"
-w5500 = "0.4.1"
+w5500 = { version = "0.4.0", path = "./libs/w5500" }
 embedded-nal = "0.6.0"
-
+smoltcp-nal = { path = "./libs/smoltcp-nal"}
 
 [dependencies.stm32f4xx-hal]
 version = "0.16.0"
